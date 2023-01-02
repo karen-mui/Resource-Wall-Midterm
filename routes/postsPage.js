@@ -2,14 +2,28 @@ const express = require('express');
 const router  = express.Router();
 const db = require('../db/connection');
 
-router.get('/post/:id', (req, res) => {
+router.get('/:id', (req, res) => {
   // function to get post and its comments, ratings, likes
-  db.getPost()
-    .then(post => res.send({post}))
-    .catch(e => {
-      console.error(e);
-      res.send(e)
+  db.query(`SELECT * FROM posts WHERE id = $1`, [req.params.id])
+    .then(result => {
+      // console.log(result.rows);
+      res.render('postsPage', result.rows[0]);
     })
-  });
+    .catch(err => {
+      console.error(err);
+      res.send(err);
+    })
+});
 
+router.post('/:id/comment', (req, res) => {
+
+});
+
+router.post('/:id/rating', (req, res) => {
+
+});
+
+router.post('/:id/like', (req, res) => {
+
+});
 module.exports = router;

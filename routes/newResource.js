@@ -2,7 +2,7 @@ const express = require('express');
 const router  = express.Router();
 const db = require('../db/connection');
 
-router.get('/newresource', (req, res) => {
+router.get('/', (req, res) => {
   const userId = req.session.userId;
   if (!userId) {
     res.status(401).send('Please login.');
@@ -14,7 +14,7 @@ router.get('/newresource', (req, res) => {
   }
 })
 
-router.post('/newresource', (req, res) => {
+router.post('/', (req, res) => {
   const userId = req.session.userId;
   const newResource = {
     owner_id: userId,
