@@ -1,8 +1,8 @@
 
-
+DROP TABLE IF EXISTS ratings CASCADE;
 CREATE TABLE ratings (
   id SERIAL PRIMARY KEY NOT NULL,
-  user_id INTEGER REFERENCES users(id),
-  post_id INTEGER REFERENCES posts(id),
+  user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+  post_id INTEGER REFERENCES posts(id) ON DELETE CASCADE,
   rating INTEGER NOT NULL
 );
