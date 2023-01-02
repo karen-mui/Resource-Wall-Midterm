@@ -1,0 +1,8 @@
+
+
+CREATE TABLE likes (
+  id SERIAL PRIMARY KEY NOT NULL,
+  user_id INTEGER REFERENCES users(id),
+  post_id INTEGER REFERENCES posts(id),
+  liked BOOLEAN DEFAULT FALSE
+);
