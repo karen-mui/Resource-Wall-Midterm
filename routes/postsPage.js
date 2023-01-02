@@ -6,8 +6,9 @@ router.get('/:id', (req, res) => {
   // function to get post and its comments, ratings, likes
   db.query(`SELECT * FROM posts WHERE id = $1`, [req.params.id])
     .then(result => {
-      // console.log(result.rows);
-      res.render('postsPage', result.rows[0]);
+      const templateVars = result.rows[0];
+      templateVars.activeUser = req.session.user_id;
+      res.render('postsPage', templateVars);
     })
     .catch(err => {
       console.error(err);

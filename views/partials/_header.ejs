@@ -1,5 +1,5 @@
 <header>
-  <% if (!user) { %>
+  <% if (!activeUser) { %>
     <div style="display: flex; align-items: flex-end; margin-left: 71%">
       <form method="GET" action="/login" style=" margin-left: auto">
         <button
@@ -16,10 +16,10 @@
         >Register</button>
       </form>
     </div>
-  <% } else if (user) { %>
+  <% } else if (activeUser) { %>
     <form method="POST" action="/logout" style="margin-left: auto">
       <div style="display: flex; align-items: flex-end">
-        <h6 style="color: rgb(70, 70, 70); margin-right: 1em">Welcome <%= user.name %><h6>
+        <h6 style="color: rgb(70, 70, 70); margin-right: 1em">Welcome <%= activeUser.name %><h6>
         <button
           type="submit"
           class="btn"
