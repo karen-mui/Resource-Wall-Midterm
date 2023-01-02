@@ -1,0 +1,31 @@
+<header>
+  <% if (!user) { %>
+    <div style="display: flex; align-items: flex-end; margin-left: 71%">
+      <form method="GET" action="/login" style=" margin-left: auto">
+        <button
+          type="submit"
+          class="btn"
+          style="border-color: rgb(69, 69, 69); color: rgb(69, 69, 69);"
+        >Login</button>
+      </form>
+      <form method="GET" action="/register" style=" margin-left: auto">
+        <button
+          type="submit"
+          class="btn"
+          style="border-color: rgb(69, 69, 69); color: rgb(69, 69, 69); margin-left: 15px"
+        >Register</button>
+      </form>
+    </div>
+  <% } else if (user) { %>
+    <form method="POST" action="/logout" style="margin-left: auto">
+      <div style="display: flex; align-items: flex-end">
+        <h6 style="color: rgb(70, 70, 70); margin-right: 1em">Logged in<h6>
+        <button
+          type="submit"
+          class="btn"
+          style="border-color: rgb(69, 69, 69); color: rgb(69, 69, 69)"
+        >Logout</button>
+      </div>
+    </form>
+  <% } %>
+</header>

@@ -18,7 +18,7 @@ router.get('/', (req, res) => {
 })
 
 router.post('/', (req, res) => {
-  if (req.body.email && req.body.password && req.body.email) {
+  if (req.body.name && req.body.email && req.body.password) {
     db.query(`SELECT * FROM users WHERE email = $1`, [req.body.email])
       .then(result => {
         if (!result.rows[0]) {
