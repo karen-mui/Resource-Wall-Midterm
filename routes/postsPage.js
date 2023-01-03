@@ -6,7 +6,7 @@ router.get('/:id', (req, res) => {
   db.query(`SELECT * FROM posts WHERE id = $1`, [req.params.id])
   .then(result => {
     const templateVars = result.rows[0];
-    templateVars.activeUser = req.session.user_id;
+    templateVars.activeUser = req.session.userId;
     res.render('postsPage', templateVars);
   })
   .catch(err => {

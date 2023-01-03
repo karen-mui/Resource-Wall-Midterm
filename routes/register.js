@@ -10,7 +10,7 @@ router.use(cookieSession({
 }));
 
 router.get('/', (req, res) => {
-  if (req.session.user_id) {
+  if (req.session.userId) {
     res.redirect('/');
   } else {
     res.render('register')
@@ -26,7 +26,7 @@ router.post('/', (req, res) => {
             .then((result) => {
               db.query(`SELECT id FROM users WHERE email = $1`, [req.body.email])
               .then(result => {
-                req.session.user_id = result.rows[0];
+                req.session.userId = result.rows[0];
                 res.redirect('/');
               })
             })

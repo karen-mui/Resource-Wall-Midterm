@@ -10,7 +10,7 @@ router.use(cookieSession({
 }));
 
 router.get('/', (req, res) => {
-  if (req.session.user_id) {
+  if (req.session.userId) {
     res.redirect('/');
   } else {
     res.render('login')
@@ -21,7 +21,7 @@ router.post('/', (req, res) => {
   db.query(`SELECT * FROM users WHERE email = $1;`, [req.body.email])
     .then(result => {
       if (result.rows[0] && bcrypt.compareSync(req.body.password, result.rows[0].password)) {
-        req.session.user_id = result.rows[0];
+        req.session.userId = result.rows[0];
         res.redirect('/');
       } else {
         res.send('Invalid Credentials');

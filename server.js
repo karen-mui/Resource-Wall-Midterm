@@ -61,7 +61,7 @@ app.use('/posts', postsPage);
 // Separate them into separate routes files (see above).
 
 app.get('/', (req, res) => {
-  const templateVars = { activeUser: req.session.user_id }
+  const templateVars = { activeUser: req.session.userId }
   res.render('index', templateVars);
 });
 
