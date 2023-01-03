@@ -23,8 +23,7 @@ router.post('/post/:id/rate', (req, res) => {
     post_id: req.body.post_id,
     rating: req.body.rating
   };
-  // function to insert new rating to the table
-  db.addRating(newRating)
+ db.addRating(newRating)
     .then(rating => {
       res.send(rating);
     })
@@ -41,9 +40,8 @@ router.post('/post/:id/comment', (req, res) => {
     user_id: userId,
     post_id: req.body.post_id,
     content: req.body.content,
-    date_posted: req.body.date_posted
+    date_posted: req.headers["Date"]
   };
-  // function to insert new comment to the table
   db.addComment(newComment)
     .then(comment => {
       res.send(comment);
@@ -62,7 +60,6 @@ router.post('/post/:id/like', (req, res) => {
     post_id: req.body.post_id,
     liked: true
   };
-  // function to insert new like to the table
   db.addLike(newLike)
     .then(like => {
       res.send(like);
