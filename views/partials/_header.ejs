@@ -8,7 +8,7 @@
   </form>
 
   <ul class="navbar-nav">
-  <% if (!user) { %>
+  <% if (!activeUser) { %>
     <li class="nav-item">
       <form method="GET" action="/login">
         <button type="submit" class="btn" id="login">Login</button>
@@ -19,7 +19,7 @@
         <button type="submit" class="btn" id="register">Register</button>
       </form>
     </li>
-    <% } else if (user) { %>
+    <% } else if (activeUser) { %>
       <li class="nav-item">
         <form method="GET" action="/newresource">
           <button type="submit" class="btn">New Resource</button>
