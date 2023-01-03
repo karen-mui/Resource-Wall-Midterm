@@ -1,39 +1,42 @@
-
-
 <header>
   <span id="logo">Finterest</span>
-    <form class="form-inline" action="/urls" method="POST">
-      <div class="form-group mb-2">
-        <input
-          class="form-inline"
-          type="text"
-          name="Search Resources"
-          placeholder="Search Resources..."
-        />
-        <button type="submit" class="btn btn-primary">Search</button>
-      </div>
-    </form>
-  <% if (!user) { %>
-    <form method="GET" action="/login">
-      <button
-      type="submit"
-      class="btn"
-      >Login</button>
-    </form>
-    <form method="GET" action="/register">
-      <button
-      type="submit"
-      class="btn"
-      >Register</button>
-    </form>
-  <% } else if (user) { %>
-      <form method="POST" action="/logout">
-        <h6>Welcome <%= user.name %></h6>
-        <button
-          type="submit"
-          class="btn"
+  <form class="form-inline" action="/search" method="POST">
+    <div class="form-group mb-2">
+      <input class="form-inline" type="text" name="Search Resources" placeholder="Search resources..." />
+      <button type="submit" class="btn btn-primary">Search</button>
+    </div>
+  </form>
 
-        >Logout</button>
-    </form>
-  <% } %>
+  <ul class="navbar-nav">
+  <% if (!user) { %>
+    <li class="nav-item">
+      <form method="GET" action="/login">
+        <button type="submit" class="btn" id="login">Login</button>
+      </form>
+    </li>
+    <li class="nav-item">
+      <form method="GET" action="/register">
+        <button type="submit" class="btn" id="register">Register</button>
+      </form>
+    </li>
+    <% } else if (user) { %>
+      <li class="nav-item">
+        <form method="GET" action="/newresource">
+          <button type="submit" class="btn">New Resource</button>
+        </form>
+      </li>
+      <li class="nav-item">
+        <form method="GET" action="/users/:id">
+          <button type="submit" class="btn">My Resources</button>
+        </form>
+      </li>
+      <li class="nav-item">
+        <form method="POST" action="/logout">
+          <h6>Welcome <%= user.name %>
+          </h6>
+          <button type="submit" class="btn" id="logout">Logout</button>
+        </form>
+      </li>
+      <% } %>
+    </ul>
 </header>

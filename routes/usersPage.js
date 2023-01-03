@@ -2,7 +2,7 @@ const express = require('express');
 const router  = express.Router();
 const db = require('../db/connection');
 
-router.get('/', (req, res) => {
+router.get('/users/:id', (req, res) => {
   const userId = req.session.userId;
   if (!userId) {
     res.status(401).send('Login to access page');
