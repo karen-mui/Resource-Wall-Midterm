@@ -1,10 +1,11 @@
 header {
   background-color: #78846f;
-  height: 4em;
+  height: auto;
   width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
+  flex-wrap: wrap;
   font-family: 'Roboto', sans-serif;
 }
 
@@ -17,7 +18,7 @@ header {
   margin-right: 1em;
 }
 
-input[type=text] {
+#search-bar {
   border: 2px solid #454d3f;
   background-color: #ffffff3b;
   border-radius: 5px;
@@ -37,7 +38,10 @@ input[type=text] {
   padding: 5px 10px;
 }
 
-
 .navbar-nav li {
   display: inline-block;
+}
+
+#welcome-msg {
+  color: #464646;
 }

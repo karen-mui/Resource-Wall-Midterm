@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+  <head>
+    <title>Create New Resource</title>
+
+    <link rel="stylesheet" href="/styles/header.css">
+    <link rel="stylesheet" href="/styles/newResource.css">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+  </head>
+  <body>
+    <%- include('partials/_header') %>
+    <div id="new-resource">
+      <div>
+        <input
+          class="input-new"
+          type="text"
+          name="title"
+          placeholder="Title"
+        />
+      </div>
+      <div>
+        <input
+          class="input-new"
+          type="text"
+          name="content_url"
+          placeholder="Content URL"
+        />
+      </div>
+      <div>
+        <input
+          class="input-new"
+          type="text"
+          name="image_url"
+          placeholder="Thumbnail"
+        />
+      </div>
+      <div>
+        <input
+          id="description"
+          class="input-new"
+          type="text"
+          name="description"
+          placeholder="Description"
+        />
+      </div>
+      <div>
+        <input
+          class="input-new"
+          type="text"
+          name="topic_id"
+          placeholder="Topic"
+        />
+        <div>
+          <form method="POST" action="/newResource">
+            <button type="submit" id="new-btn">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>

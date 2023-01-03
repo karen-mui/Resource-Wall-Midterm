@@ -3,14 +3,13 @@ const router  = express.Router();
 const db = require('../db/connection');
 
 router.get('/', (req, res) => {
-  const userId = req.session.userId;
-  if (!userId) {
+  if (!req.session.userId) {
     res.status(401).send('Please login.');
   } else {
     const templateVars = {
-      //
+      activeUser: req.session.userId
     }
-    res.render("new_resource", templateVars)
+    res.render("newResource", templateVars)
   }
 })
 
@@ -22,7 +21,7 @@ router.post('/', (req, res) => {
     title: req.body.title,
     description: req.body.description,
     content_url: req.body.content_url,
-    img_url: req.body.img_url,
+    image_url: req.body.image_url,
     date_posted: req.body.date_posted
   }
   // function to insert new resource into table

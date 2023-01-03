@@ -2,7 +2,7 @@
   <span id="logo">Finterest</span>
   <form class="form-inline" action="/search" method="POST">
     <div class="form-group mb-2">
-      <input class="form-inline" type="text" name="Search Resources" placeholder="Search resources..." />
+      <input id="search-bar" class="form-inline" type="text" name="Search Resources" placeholder="Search resources..." />
       <button type="submit" class="btn btn-primary">Search</button>
     </div>
   </form>
@@ -20,6 +20,9 @@
       </form>
     </li>
     <% } else if (activeUser) { %>
+      <li class="nav-item" id="welcome-msg">
+        <h6>Welcome <%= activeUser.name %></h6>
+      </li>
       <li class="nav-item">
         <form method="GET" action="/newresource">
           <button type="submit" class="btn">New Resource</button>
@@ -32,8 +35,6 @@
       </li>
       <li class="nav-item">
         <form method="POST" action="/logout">
-          <h6>Welcome <%= activeUser.name %>
-          </h6>
           <button type="submit" class="btn" id="logout">Logout</button>
         </form>
       </li>
