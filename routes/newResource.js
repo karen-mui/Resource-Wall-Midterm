@@ -14,26 +14,32 @@ router.get('/', (req, res) => {
 })
 
 router.post('/', (req, res) => {
-  const userId = req.session.userId;
-  const newResource = {
-    owner_id: userId,
-    topic_id: req.body.topic_id,
-    title: req.body.title,
-    description: req.body.description,
-    content_url: req.body.content_url,
-    image_url: req.body.image_url,
-    date_posted: req.body.date_posted
-  }
-  // function to insert new resource into table
-  db.addResource(newResource)
-    .then(resource => {
-      res.send(resource);
+  db.query(`SELECT * FROM topics WHERE topic = $1;`, [req.body.topic_id])
+    .then(result => {
+      if (result.rows[0]) {
+        db.query(`INSERT INTO posts (owner_id, topic_id, title, description, content_url, image_url) VALUES ($1, $2, $3, $4, $5, $6);`, [req.session.userId.id, result.rows[0].id, req.body.title, req.body.description, req.body.content_url, req.body.image_url])
+        .then(result => {
+          res.redirect('/');
+        })
+        .catch(err => {
+          console.log(err);
+        })
+      } else if (!result.rows[0]) {
+        db.query(`INSERT INTO topics (topic) VALUES ($1);`, [req.body.topic_id])
+        .then(result => {
+          db.query(`SELECT * FROM topics WHERE topic = $1;`, [req.body.topic_id])
+          .then(result => {
+            db.query(`INSERT INTO posts (owner_id, topic_id, title, description, content_url, image_url) VALUES ($1, $2, $3, $4, $5, $6);`, [req.session.userId.id, result.rows[0].id, req.body.title, req.body.description, req.body.content_url, req.body.image_url])
+            .then(result => {
+              res.redirect('/');
+            })
+            .catch(err => {
+              console.log(err);
+            });
+          })
+        })
+      }
     })
-    .catch(e => {
-      console.error(e);
-      res.send(e)
-    });
-  // redirection to which page? => res.redirect()
 })
 
 module.exports = router;
