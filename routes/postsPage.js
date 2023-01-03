@@ -59,7 +59,7 @@ router.post('/post/:id/like', (req, res) => {
     post_id: req.body.post_id,
     liked: true
   };
-  // function to insert new rating to the table
+  // function to insert new like to the table
   db.addLike(newLike)
     .then(like => {
       res.send(like);

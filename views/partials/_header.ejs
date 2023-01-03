@@ -1,31 +1,39 @@
+
+
 <header>
-  <% if (!user) { %>
-    <div style="display: flex; align-items: flex-end; margin-left: 71%">
-      <form method="GET" action="/login" style=" margin-left: auto">
-        <button
-          type="submit"
-          class="btn"
-          style="border-color: rgb(69, 69, 69); color: rgb(69, 69, 69);"
-        >Login</button>
-      </form>
-      <form method="GET" action="/register" style=" margin-left: auto">
-        <button
-          type="submit"
-          class="btn"
-          style="border-color: rgb(69, 69, 69); color: rgb(69, 69, 69); margin-left: 15px"
-        >Register</button>
-      </form>
-    </div>
-  <% } else if (user) { %>
-    <form method="POST" action="/logout" style="margin-left: auto">
-      <div style="display: flex; align-items: flex-end">
-        <h6 style="color: rgb(70, 70, 70); margin-right: 1em">Welcome <%= user.name %><h6>
-        <button
-          type="submit"
-          class="btn"
-          style="border-color: rgb(69, 69, 69); color: rgb(69, 69, 69)"
-        >Logout</button>
+  <span id="logo">Finterest</span>
+    <form class="form-inline" action="/urls" method="POST">
+      <div class="form-group mb-2">
+        <input
+          class="form-inline"
+          type="text"
+          name="Search Resources"
+          placeholder="Search Resources..."
+        />
+        <button type="submit" class="btn btn-primary">Search</button>
       </div>
+    </form>
+  <% if (!user) { %>
+    <form method="GET" action="/login">
+      <button
+      type="submit"
+      class="btn"
+      >Login</button>
+    </form>
+    <form method="GET" action="/register">
+      <button
+      type="submit"
+      class="btn"
+      >Register</button>
+    </form>
+  <% } else if (user) { %>
+      <form method="POST" action="/logout">
+        <h6>Welcome <%= user.name %></h6>
+        <button
+          type="submit"
+          class="btn"
+
+        >Logout</button>
     </form>
   <% } %>
 </header>
