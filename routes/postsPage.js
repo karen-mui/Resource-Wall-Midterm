@@ -3,7 +3,15 @@ const router = express.Router();
 const db = require('../db/connection');
 
 router.get('/:id', (req, res) => {
-  db.query(`SELECT * FROM posts WHERE id = $1`, [req.params.id])
+  db.query(`
+  SELECT *
+  FROM posts
+  JOIN comments ON post_id = posts.id
+  JOIN users ON user_id = users.id
+  WHERE posts.id = $1
+  `
+  ,
+  [req.params.id])
   .then(result => {
     const templateVars = result.rows[0];
     templateVars.activeUser = req.session.userId;

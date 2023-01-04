@@ -1,6 +1,6 @@
 
 INSERT INTO posts (owner_id, topic_id, title, description, content_url, image_url)
-VALUES (1, 1, 'Cat', 'Wikipedia Cat', 'https://en.wikipedia.org/wiki/Cat', 'https://www.rd.com/wp-content/uploads/2021/01/GettyImages-1175550351.jpg?w=2141');
+VALUES (1, 1, 'Cat', 'Wikipedia CatWikipedia CatWikipedia CatWikipedia CatWikipedia CatWikipedia CatWikipedia CatWikipedia CatWikipedia CatWikipedia CatWikipedia CatWikipedia CatWikipedia CatWikipedia CatWikipedia CatWikipedia Cat', 'https://en.wikipedia.org/wiki/Cat', 'https://www.rd.com/wp-content/uploads/2021/01/GettyImages-1175550351.jpg?w=2141');
 
 INSERT INTO posts (owner_id, topic_id, title, description, content_url, image_url)
 VALUES (3, 6, 'New Laptop', 'Apple Macbook Pro', 'https://www.apple.com/ca/macbook-pro/', 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mbp-spacegray-select-202206?wid=904&hei=840&fmt=jpeg&qlt=90&.v=1664497359481');
