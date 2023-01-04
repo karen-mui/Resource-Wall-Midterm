@@ -25,6 +25,7 @@ app.use(
     isSass: false, // false => scss, true => sass
   })
 );
+app.use('/scripts', express.static(__dirname + '/scripts'));
 app.use(express.static('public'));
 app.use(cookieSession({
   name: 'session',
@@ -41,7 +42,9 @@ const logout = require('./routes/logout');
 const usersPage = require('./routes/usersPage');
 const newResource = require('./routes/newResource');
 const postsPage = require('./routes/postsPage');
-
+const postsApi = require('./routes/allPostApi');
+const postApi = require('./routes/postApi');
+const usersPostsApi = require('./routes/myResourcesApi');
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -51,9 +54,12 @@ const postsPage = require('./routes/postsPage');
 app.use('/register', register);
 app.use('/login', login);
 app.use('/logout', logout);
-app.use('/users', usersPage);
+app.use('/myResources', usersPage);
 app.use('/newresource', newResource);
 app.use('/posts', postsPage);
+app.use('/api/allPosts', postsApi);
+app.use('/api/post', postApi);
+app.use('/api/usersMyResources', usersPostsApi);
 // Note: mount other resources here, using the same pattern above
 
 // Home page
@@ -66,5 +72,5 @@ app.get('/', (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Example app listening on port ${PORT}`);
+  console.log(`App listening on port ${PORT}`);
 });
