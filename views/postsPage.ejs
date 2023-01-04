@@ -24,6 +24,8 @@
   <script src="/vendor/jquery-3.0.0.js"></script>
   <script defer src="/scripts/users.js"></script>
 
+  <script src="/scripts/app.js"></script>
+
   <!-- <script>
     $(document).ready(function() {
       $('#check').click(function() {
@@ -50,20 +52,26 @@
         </p>
       </section>
       <section class="right-section">
+        <div id="Like">
+          <h5>Like</h5>
+        </div>
         <div id="rating">
           <h3>Rate</h3>
         </div>
-        <div id="comment">
+        <div class="comment">
           <!-- form action -->
-          <form action="/" method="POST">
-              <textarea id="comment-box" type="text" placeholder="Add a comment..."></textarea>
+          <form>
+              <textarea name="commentbox" type="text" placeholder="Add a comment..."></textarea>
                 <button id="comment-button" type="submit">Comment</button>
             </form>
             <h5>Comments</h5>
+            <div id="comment-container">
+              <%= name %>
+              <%= content %>
+            <!-- implement AJAX using JQuery for the comments ? if no time just send some type of jQuery form submit text-->
+          </div>
             <!-- if statement for comments -->
-            <%= name %>
-            <%= content %>
-          <!-- implement AJAX using JQuery for the comments ? if no time just send some type of jQuery form submit text-->
+
         </div>
       </section>
     </main>

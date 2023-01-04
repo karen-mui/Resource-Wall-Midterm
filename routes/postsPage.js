@@ -1,6 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../db/connection');
+const functions = require('../db/queries/functions')
+
+console.log(functions);
 
 router.get('/:id', (req, res) => {
   db.query(`
@@ -43,14 +46,16 @@ router.post('/post/:id/rate', (req, res) => {
 
 // /POST/:ID/COMMENT => comment resource
 router.post('/post/:id/comment', (req, res) => {
-  const userId = req.session.userId;
+  const user = req.session.userId;
+  console.log(req.body);
   const newComment = {
-    user_id: userId,
+    user_id: user.id,
     post_id: req.body.post_id,
     content: req.body.content,
     date_posted: req.headers["Date"]
   };
-  db.addComment(newComment)
+  console.log(newComment)
+  functions.addComment(newComment)
     .then(comment => {
       res.send(comment);
     })

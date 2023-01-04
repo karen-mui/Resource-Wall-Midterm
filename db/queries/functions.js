@@ -1,15 +1,8 @@
-const { Pool } = require('pg');
-
-const pool = new Pool({
-  user: 'labber',
-  password: 'labber',
-  host: 'localhost',
-  database: 'midterm'
-});
+const db = require('../connection');
 
 // Insert rating to the database
 const addRating = function(rating) {
-  return pool
+  return db
     .query(`
   INSERT INTO ratings (user_id, post_id, rating) VALUES ($1, $2, $3)
   RETURNING *;`,
@@ -26,11 +19,11 @@ exports.addRating = addRating;
 
 // Insert comment to the database
 const addComment = function(comment) {
-  return pool
+  return db
     .query(`
-  INSERT INTO comments (user_id, post_id, content, date_posted) VALUES ($1, $2, $3, $4)
+  INSERT INTO comments (user_id, post_id, content) VALUES ($1, $2, $3)
   RETURNING *;`,
-      [comment.user_id, comment.post_id, comment.content, comment.date_posted])
+      [comment.user_id, comment.post_id, comment.content])
     .then((result) => {
       return result.rows[0];
     })
@@ -43,7 +36,7 @@ exports.addComment = addComment;
 
 // Insert comment to the database
 const addLike = function(like) {
-  return pool
+  return db
     .query(`
   INSERT INTO likes (user_id, post_id, liked) VALUES ($1, $2, $3)
   RETURNING *;`,
