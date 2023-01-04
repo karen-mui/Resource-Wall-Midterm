@@ -1,23 +1,30 @@
+h1 {
+  color: #464e3f;
+}
 
 #new-resource {
-  margin-top: 10%;
+  margin-top: 3em;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-input{
-  border: 2px solid #454d3f;
-  background-color: #ffffff3b;
-  border-radius: 5px;
-  height: 1em;
-  width: 300px;
-  padding: 12px 20px;
+.input-new {
+  border: none;
+  background-color: #c8c8c83b;
+  height: 2em;
+  width: 25em;
+  padding: 12px 15px;
+  margin: 0.5em;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
 }
 
 #description {
   height: 10em;
+  resize: none;
 }
+
 
 #new-btn {
   background-color: #ffffff09;
