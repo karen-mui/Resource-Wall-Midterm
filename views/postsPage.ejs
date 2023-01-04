@@ -40,7 +40,7 @@
         <div id="title">
           <%= title %>
         </div>
-        <img src="<%= image_url %>">
+        <img id="thumbnail" src="<%= image_url %>">
         <p>
           <%= description%>
         </p>
@@ -61,7 +61,7 @@
             </form>
             <h5>Comments</h5>
             <!-- if statement for comments -->
-            <%= name %>
+            <%= name %>:
             <%= content %>
           <!-- implement AJAX using JQuery for the comments ? if no time just send some type of jQuery form submit text-->
         </div>

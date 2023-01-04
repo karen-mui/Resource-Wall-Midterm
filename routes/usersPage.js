@@ -10,11 +10,7 @@ router.get('/', (req, res) => {
     db.query(`SELECT * FROM posts LEFT JOIN users ON owner_id = users.id WHERE owner_id = $1 GROUP BY posts.id, users.id`, [req.session.userId.id])
     .then(result => {
       result.rows.forEach(data => {
-        let post = createPostElement(data);
-        // let div = document.createElement('div');
-        // div.innerHTML = post;
-        // container.appendChild(div);
-        $('#users-posts').append(post);
+
       })
     })
     .then(
