@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<<<<<<< HEAD
 
 <head>
   <title>
@@ -51,3 +52,21 @@
 </body>
 
 </html>
+=======
+  <head>
+    <title><%= title %></title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+  </head>
+  <body>
+    <%- include('partials/_header') %>
+    <article class="post">
+      <h1><%= title %></h1>
+      <img src="<%= image_url %>">
+      <p><%= description%></p>
+      <a href="<%= content_url %>">Go To Content</a>
+      <p><%= date_posted %></p>
+    </article>
+  </body>
+>>>>>>> 6bb704f5f99d89032e0aa1ffbe4978f01fb61c2a
