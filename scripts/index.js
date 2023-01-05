@@ -13,16 +13,16 @@ const createResourceElement = function(resource) {
     return div.innerHTML;
   };
   let $resource = `
-    <article class="resource">
-      <form method="GET" action="/posts/${resource.id}">
-        <button type="submit" class="homepage-btn">
-          <header>
-            <h1>${escape(resource.title)}</h1>
-          </header>
-          <img id="thumbnail" src=${resource.image_url}>
-        </button>
-      </form>
-    </article>
+  <article class="resource">
+  <form method="GET" action="/posts/${resource.id}">
+    <button type="submit" class="homepage-btn">
+      <figure>
+      <img id="thumbnail" src=${resource.image_url}>
+      ${escape(resource.title)}
+        </figure>
+    </button>
+  </form>
+</article>
   `;
   return $resource;
 }
