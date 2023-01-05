@@ -28,16 +28,10 @@ const createResourceElement = function(resource) {
 
 $(() => {
   const loadResources = function() {
-    let topic = $('#search-bar').attr('searchTopic');
-    $.ajax({ method: "GET", url: '/api/allPosts' })
+    const topicId = $('#search-result-posts').attr('topicId');
+    $.ajax({ method: "GET", url: `/api/postsByTopic/${topicId}` })
       .then(function(results) {
-        const searchResults = [];
-        results.forEach(result => {
-          if (result.topic === topic) {
-            searchResults.push(result);
-          }
-        })
-        renderResources(searchResults);
+        renderResources(results);
       })
       .catch(err => {
         console.log(err);

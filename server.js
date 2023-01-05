@@ -46,6 +46,7 @@ const postsPage = require('./routes/postsPage');
 const postsApi = require('./routes/allPostApi');
 const postApi = require('./routes/postApi');
 const usersPostsApi = require('./routes/myResourcesApi');
+const postsByTopic = require('./routes/allPostsByTopic');
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -62,6 +63,7 @@ app.use('/posts', postsPage);
 app.use('/api/allPosts', postsApi);
 app.use('/api/post', postApi);
 app.use('/api/usersMyResources', usersPostsApi);
+app.use('/api/postsByTopic', postsByTopic);
 // Note: mount other resources here, using the same pattern above
 
 // Home page
