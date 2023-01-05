@@ -9,7 +9,7 @@ router.use(cookieSession({
 
 router.post('/', (req, res) => {
   req.session = null;
-  res.redirect('/login');
+  res.redirect('/');
 })
 
 module.exports = router;

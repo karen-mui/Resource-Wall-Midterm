@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="/styles/layout.css" />
   <link rel="stylesheet" href="/styles/postsPage.css" />
   <link rel="stylesheet" href="/styles/header.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,47 +29,55 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js" integrity="sha512-SVDh1zH5N9ChofSlNAK43lcNS7lWze6DTVx1JCXH1Tmno+0/1jMpdbR8YDgDUfcUrPp1xyE53G42GFrcM0CMVg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script defer src="/scripts/commentSection.js" ></script>
+  <script defer src="/scripts/commentSection.js"></script>
+  <script defer src="/scripts/rating.js"></script>
 
 </head>
 
 <body>
   <%- include('partials/_header') %>
-    <main class="container">
-      <section class="left-section">
-        <div id="title">
-          <%= title %>
-        </div>
-        <img id="thumbnail" src="<%= image_url %>">
-        <p>
-          <%= description%>
-        </p>
-        <a href="<%= content_url %>">Visit content page</a>
-        <p>
-          <%= date_posted %>
-        </p>
-      </section>
+  <main class="container">
+    <section class="left-section">
+      <div id="title">
+        <%= title %>
+      </div>
+      <img id="thumbnail" src="<%= image_url %>">
+      <p>
+        <%= description%>
+      </p>
+      <a href="<%= content_url %>">Visit content page</a>
+      <p>
+        <%= date_posted %>
+      </p>
+    </section>
+    <% if (activeUser) { %>
       <section class="right-section">
-        <div id="Like">
-          <h5>Like</h5>
-        </div>
         <div id="rating">
-          <h3>Rate</h3>
-        </div>
-            <!-- if statement for comments -->
-        <div id="like-btn">
-          <h3>Like</h3>
+            <div name="rating" class="stars-section">
+                <h3>
+                  <i class="<%= !rating ? 'fa-regular' : 'fa-solid' %> fa-star" onclick="setRating('<%= postId %>', 1)"></i>
+                  <i class="<%= rating >= 2 ? 'fa-solid' : 'fa-regular' %> fa-star" onclick="setRating('<%= postId %>', 2)"></i>
+                  <i class="<%= rating >= 3 ? 'fa-solid' : 'fa-regular' %> fa-star" onclick="setRating('<%= postId %>', 3)"></i>
+                  <i class="<%= rating >= 4 ? 'fa-solid' : 'fa-regular' %> fa-star" onclick="setRating('<%= postId %>', 4)"></i>
+                  <i class="<%= rating >= 5 ? 'fa-solid' : 'fa-regular' %> fa-star" onclick="setRating('<%= postId %>', 5)"></i>
+                </h3>
+            </div>
+          </form>
+        <div id="like-btn" liked="<%= liked %>">
+          <h3>
+            <i class="<%= !liked ? 'fa-regular' : 'fa-solid' %> fa-heart" onclick="likePost('<%= postId %>')"></i>
+          </h3>
         </div>
         <div id="comment">
-          <!-- form action -->
-          <form method="POST" action="/comment">
-              <textarea id="comment-box" type="text" placeholder="Add a comment..."></textarea>
+          <form method="POST" action="/posts/<%= postId %>/comment">
+              <textarea id="comment-box" type="text" name="commentContent" placeholder="Add a comment..." postId="<%= postId %>"></textarea>
                 <button id="comment-button" type="submit">Comment</button>
             </form>
             <h3>Comments:</h3>
-            <div postId="<%= postId %>" id="comment-section"></div>
+            <div postId="<%= postId %>" activeUser="<%= activeUser %>" id="comment-section"></div>
         </div>
       </section>
+    <% } %>
     </main>
 </body>
 

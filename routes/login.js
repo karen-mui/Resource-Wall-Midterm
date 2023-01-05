@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
   if (req.session.userId) {
     res.redirect('/');
   } else {
-    res.render('login')
+    res.render('login', { activeUser: req.session.userId })
   }
 })
 
