@@ -24,6 +24,9 @@
   <script src="/vendor/jquery-3.0.0.js"></script>
   <script defer src="/scripts/users.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js" integrity="sha512-SVDh1zH5N9ChofSlNAK43lcNS7lWze6DTVx1JCXH1Tmno+0/1jMpdbR8YDgDUfcUrPp1xyE53G42GFrcM0CMVg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script defer src="/scripts/commentSection.js" ></script>
+
 </head>
 
 <body>
@@ -46,22 +49,20 @@
         <div id="rating">
           <h3>Rate</h3>
         </div>
+        <div id="like-btn">
+          <h3>Like</h3>
+        </div>
         <div id="comment">
           <!-- form action -->
-          <form action="/" method="POST">
+          <form method="POST" action="/comment">
               <textarea id="comment-box" type="text" placeholder="Add a comment..."></textarea>
                 <button id="comment-button" type="submit">Comment</button>
             </form>
-            <h5>Comments</h5>
-            <!-- if statement for comments -->
-            <%= name %>:
-            <%= content %>
-          <!-- implement AJAX using JQuery for the comments ? if no time just send some type of jQuery form submit text-->
+            <h3>Comments:</h3>
+            <div postId="<%= postId %>" id="comment-section"></div>
         </div>
       </section>
     </main>
-
-    <!-- <button id="check">Check</button> -->
 </body>
 
 </html>

@@ -39,6 +39,7 @@ app.use(cookieSession({
 const register = require('./routes/register');
 const login = require('./routes/login');
 const logout = require('./routes/logout');
+const search = require('./routes/search');
 const usersPage = require('./routes/usersPage');
 const newResource = require('./routes/newResource');
 const postsPage = require('./routes/postsPage');
@@ -54,6 +55,7 @@ const usersPostsApi = require('./routes/myResourcesApi');
 app.use('/register', register);
 app.use('/login', login);
 app.use('/logout', logout);
+app.use('/search', search);
 app.use('/myResources', usersPage);
 app.use('/newresource', newResource);
 app.use('/posts', postsPage);

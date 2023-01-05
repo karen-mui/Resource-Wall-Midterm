@@ -3,7 +3,7 @@ const router = express.Router();
 const db = require('../db/connection');
 
 router.get('/', (req, res) => {
-  db.query(`SELECT * FROM posts ORDER BY date_posted;`)
+  db.query(`SELECT * FROM posts LEFT JOIN topics ON topic_id = topics.id ORDER BY date_posted;`)
     .then(result => {
       res.json(result.rows);
     })

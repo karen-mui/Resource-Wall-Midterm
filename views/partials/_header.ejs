@@ -4,9 +4,9 @@
       <span id="logo">Finterest</span>
     </button>
   </form>
-  <form class="form-inline" action="/search" method="POST">
+  <form class="form-inline" method="GET" action="/search">
     <div class="form-group mb-2">
-      <input id="search-bar" class="form-inline" type="text" name="Search Resources" placeholder="Search resources..." />
+      <input searchTopic="<%= topicSearched %>" id="search-bar" class="form-inline" type="text" name="searchResources" placeholder="Search resources..." />
       <button type="submit" class="btn btn-primary">Search</button>
     </div>
   </form>
