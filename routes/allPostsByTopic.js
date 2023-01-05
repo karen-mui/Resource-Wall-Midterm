@@ -2,8 +2,8 @@ const express = require('express');
 const router = express.Router();
 const db = require('../db/connection');
 
-router.get('/', (req, res) => {
-  db.query(`SELECT * FROM posts LEFT JOIN topics ON topic_id = topics.id ORDER BY date_posted;`)
+router.get('/:id', (req, res) => {
+  db.query(`SELECT * FROM posts LEFT JOIN topics ON topic_id = topics.id WHERE topic_id = $1`, [req.params.id])
     .then(result => {
       res.json(result.rows);
     })
@@ -12,6 +12,6 @@ router.get('/', (req, res) => {
         .status(500)
         .json({ error: err.message });
     });
-});
+})
 
 module.exports = router;

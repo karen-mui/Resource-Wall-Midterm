@@ -13,8 +13,6 @@ $(document).ready(function() {
     <div>${comment.content.text}</div>
     <footer>
       <span>${timeago.format(comment.created_at)}</span>
-      <span><i class="fa-solid fa-flag"></i> <i class="fa-solid fa-retweet"></i> <i
-          class="fa-solid fa-heart"></i></span>
     </footer>
     </article>
     `);

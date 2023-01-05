@@ -39,12 +39,14 @@ app.use(cookieSession({
 const register = require('./routes/register');
 const login = require('./routes/login');
 const logout = require('./routes/logout');
+const search = require('./routes/search');
 const usersPage = require('./routes/usersPage');
 const newResource = require('./routes/newResource');
 const postsPage = require('./routes/postsPage');
 const postsApi = require('./routes/allPostApi');
 const postApi = require('./routes/postApi');
 const usersPostsApi = require('./routes/myResourcesApi');
+const postsByTopic = require('./routes/allPostsByTopic');
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -54,12 +56,14 @@ const usersPostsApi = require('./routes/myResourcesApi');
 app.use('/register', register);
 app.use('/login', login);
 app.use('/logout', logout);
+app.use('/search', search);
 app.use('/myResources', usersPage);
 app.use('/newresource', newResource);
 app.use('/posts', postsPage);
 app.use('/api/allPosts', postsApi);
 app.use('/api/post', postApi);
 app.use('/api/usersMyResources', usersPostsApi);
+app.use('/api/postsByTopic', postsByTopic);
 // Note: mount other resources here, using the same pattern above
 
 // Home page
