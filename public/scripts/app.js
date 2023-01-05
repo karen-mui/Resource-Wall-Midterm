@@ -40,7 +40,7 @@ $(document).ready(function() {
         data: obj
       })
         .then(() => console.log('complete'))
-        .then($("body").load(`/post/`)); // HERE
+        .then($("body").load(`/post/???`)); // HERE
 
   });
 

@@ -80,3 +80,13 @@ a:link, a:visited {
   color: rgb(142, 142, 142);
 }
 
+
+
+
+#thumbnail {
+  width: 50%;
+  border: 100px, solid, black;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}

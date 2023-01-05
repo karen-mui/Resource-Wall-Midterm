@@ -33,6 +33,7 @@
       });
     });
   </script> -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -42,7 +43,7 @@
         <div id="title">
           <%= title %>
         </div>
-        <img src="<%= image_url %>">
+        <img id="thumbnail" src="<%= image_url %>">
         <p>
           <%= description%>
         </p>
@@ -71,7 +72,6 @@
             <!-- implement AJAX using JQuery for the comments ? if no time just send some type of jQuery form submit text-->
           </div>
             <!-- if statement for comments -->
-
         </div>
       </section>
     </main>
