@@ -87,3 +87,15 @@ a:link, a:visited {
   flex-direction: row;
   justify-content: space-around;
 }
+
+.comment {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  padding-left: 10px;
+  background-color: #efd8eb;
+  border-radius: 5px;
+}
+
+#comment-time {
+  font-size: small;
+}

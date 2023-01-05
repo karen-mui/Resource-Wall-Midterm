@@ -2,10 +2,10 @@ const express = require('express');
 const router = express.Router();
 const db = require('../db/connection');
 
-router.get('/:topic', (req, res) => {
-  db.query(`SELECT * FROM topics WHERE topic = $1;`, [req.params.topic])
+router.get('/', (req, res) => {
+  db.query(`SELECT * FROM topics WHERE topic = $1;`, [req.query.searchResources])
     .then(result => {
-      console.log(result.rows, req.params.topic);
+      console.log(result.rows);
       res.render('searchResults', { activeUser: req.session.userId, searchedTopic: result.rows[0] });
     })
     .catch(err => {
