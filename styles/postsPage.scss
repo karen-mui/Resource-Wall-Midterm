@@ -69,6 +69,7 @@ a:link, a:visited {
 
 
 #comment-box {
+  padding-top: 1em;
   background: transparent;
   border: none;
   border-bottom: 2px solid #545149;
@@ -92,10 +93,20 @@ a:link, a:visited {
   margin-top: 0.5em;
   margin-bottom: 0.5em;
   padding-left: 10px;
-  background-color: #efd8eb;
+  background-color: #dddddd;
   border-radius: 5px;
+}
+
+article > div {
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 #comment-time {
   font-size: small;
+  padding-bottom: 5px;
+}
+
+h3 {
+  padding-top: 1em;
 }

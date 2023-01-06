@@ -13,7 +13,7 @@ const createCommentElement = function(comment) {
   };
   let $comment = `
     <article class="comment">
-      <p>${comment.commenter_name}: ${comment.content}</p>
+    <div>${comment.commenter_name}: ${comment.content}</div>
       <footer id="comment-time">${timeago.format(comment.date_posted)}</footer>
     </article>
   `;

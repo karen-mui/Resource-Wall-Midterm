@@ -13,8 +13,8 @@
     <link rel="stylesheet" href="/vendor/border-box.css" />
     <link rel="stylesheet" href="/styles/main.css" />
     <link rel="stylesheet" href="/styles/layout.css" />
-    <link rel="stylesheet" href="/styles/postsPage.css" />
     <link rel="stylesheet" href="/styles/header.css" />
+    <link rel="stylesheet" href="/styles/myResources.css" />
 
     <!-- Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600&family=Roboto:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
@@ -31,7 +31,10 @@
 
   <body>
     <%- include('partials/_header') %>
+    <div class="title">Search Results for '<%= searchedTopic.topic %>'</div>
+    <div id="columns">
     <section topicId="<%= searchedTopic.id %>" id="search-result-posts"></section>
+    </div>
   </body>
 
 </html>
