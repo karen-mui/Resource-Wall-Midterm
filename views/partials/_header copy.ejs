@@ -4,22 +4,12 @@
       <span id="logo">Finterest</span>
     </button>
   </form>
-  <div class="dropdown">
-    <button class="dropbtn">Search Resources
-    <i class="fa fa-caret-down"></i>
-    </button>
-    <div class="dropdown-content">
-    </form>
-    <form method="GET" action="/search">
-    <div><button type="submit" name="searchResources" value="cats">Cats</button></div>
-    <div><button type="submit" name="searchResources" value="history">History</button></div>
-    <div><button type="submit" name="searchResources" value="science">Science</button></div>
-    <div><button type="submit" name="searchResources" value="math">Math</button></div>
-    <div><button type="submit" name="searchResources" value="art">Art</button></div>
-    <div><button type="submit" name="searchResources" value="computers">Computers</button></div>
-    </form>
+  <form class="form-inline" method="GET" action="/search">
+    <div class="form-group mb-2">
+      <input id="search-bar" class="form-inline" type="text" name="searchResources" placeholder="Search resources..." />
+      <button type="submit" class="btn btn-primary">Search</button>
     </div>
-    </div>
+  </form>
 
   <ul class="navbar-nav">
   <% if (!activeUser) { %>
